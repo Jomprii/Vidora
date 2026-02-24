@@ -1,10 +1,15 @@
-import { Text, View, StyleSheet } from "react-native";
+import { StatusBar, Text, View, StyleSheet, Pressable } from "react-native";
+import { Icon, ThreeDotsIcon } from "@/components/ui/icon";
 
-export default function Index() {
+export default function Vidora() {
   return (
     <>
+      <StatusBar barStyle={"light-content"} />
       <View style={styles.container}>
         <Text style={styles.texts}>Test</Text>
+        <Pressable />
+        <Icon as={ThreeDotsIcon} />
+        <Text>Tried the branching</Text>
       </View>
     </>
   );
@@ -15,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#213448",
+    backgroundColor: "#1B2A3A",
   },
   texts: {
     color: "#EAE0CF",
