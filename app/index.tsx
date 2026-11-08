@@ -59,7 +59,10 @@ function VideoPlayerModal({
       visible
     >
       <DeviceSafeAreaView style={styles.playerScreen}>
-        <StatusBar barStyle="light-content" backgroundColor={colors.background} />
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor={colors.background}
+        />
         <View style={styles.playerHeader}>
           <Pressable
             accessibilityLabel="Close video player"
@@ -85,7 +88,9 @@ function VideoPlayerModal({
           <Text numberOfLines={2} style={styles.playerFooterTitle}>
             {video.name}
           </Text>
-          <Text style={styles.playerFooterMeta}>{formatFileSize(video.size)}</Text>
+          <Text style={styles.playerFooterMeta}>
+            {formatFileSize(video.size)}
+          </Text>
         </View>
       </DeviceSafeAreaView>
     </Modal>
@@ -101,7 +106,9 @@ export default function Vidora() {
   const filteredVideos = useMemo(() => {
     const query = search.trim().toLocaleLowerCase();
     if (!query) return videos;
-    return videos.filter((video) => video.name.toLocaleLowerCase().includes(query));
+    return videos.filter((video) =>
+      video.name.toLocaleLowerCase().includes(query),
+    );
   }, [search, videos]);
 
   async function importVideos() {
@@ -131,7 +138,9 @@ export default function Vidora() {
       });
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : "Please try importing your video again.";
+        error instanceof Error
+          ? error.message
+          : "Please try importing your video again.";
       Alert.alert("Couldn't import videos", message);
     } finally {
       setIsImporting(false);
@@ -180,8 +189,8 @@ export default function Vidora() {
               </View>
               <Text style={styles.emptyTitle}>Make yourself at home.</Text>
               <Text style={styles.emptyBody}>
-                Add videos from your device and enjoy them without ads, noise, or
-                distractions.
+                Add videos from your device and enjoy them without ads, noise,
+                or distractions.
               </Text>
               <Pressable
                 accessibilityRole="button"
@@ -198,7 +207,9 @@ export default function Vidora() {
                 ) : (
                   <>
                     <Feather color={colors.accentText} name="plus" size={18} />
-                    <Text style={styles.emptyButtonText}>Add your first video</Text>
+                    <Text style={styles.emptyButtonText}>
+                      Add your first video
+                    </Text>
                   </>
                 )}
               </Pressable>
