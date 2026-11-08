@@ -11,6 +11,7 @@ export default function RootLayout() {
       screenOptions={{
         headerStyle: { backgroundColor: "#213448" },
         headerTintColor: "#EAE0CF",
+        headerShown: false,
       }}
     />
     </GluestackUIProvider>
